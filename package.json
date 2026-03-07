@@ -1,6 +1,6 @@
 {
-  "name": "napm",
-  "version": "0.1.0",
+  "name": "@rilai/napm",
+  "version": "0.2.0",
   "description": "Node.js Agent Package Manager — cross-platform (Windows-first) reimplementation of Microsoft APM",
   "type": "module",
   "engines": {
