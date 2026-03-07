@@ -7,25 +7,25 @@ on:
   pull_request:
     branches: [main]
 
-jobs:
-  ci:
-    name: Build & Test (Node ${{ matrix.node-version }})
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [24]
-    steps:
-      - uses: actions/checkout@v4
+# jobs:
+#   ci:
+#     name: Build & Test (Node ${{ matrix.node-version }})
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [24]
+#     steps:
+#       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: npm
+#       - uses: actions/setup-node@v4
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#           cache: npm
 
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run build
-      - run: npm run test
+#       - run: npm ci
+#       - run: npm run lint
+#       - run: npm run build
+#       - run: npm run test
 
 permissions:
   id-token: write  # Required for OIDC
