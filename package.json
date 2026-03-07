@@ -61,5 +61,9 @@
     "agent-skills",
     "windows"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/richard-lai/napm"
+  },
   "license": "MIT"
 }
