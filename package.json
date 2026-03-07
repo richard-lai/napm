@@ -47,6 +47,12 @@
     "typescript": "^5.6.3",
     "vitest": "^2.1.4"
   },
+  "files": [
+    "dist",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
   "keywords": [
     "ai-agents",
     "package-manager",
