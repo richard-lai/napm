@@ -1,5 +1,0 @@
-name: napm
-version: 1.0.0
-dependencies:
-  apm:
-    - microsoft/apm-sample-package
