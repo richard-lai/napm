@@ -1,0 +1,59 @@
+{
+  "name": "napm",
+  "version": "0.1.0",
+  "description": "Node.js Agent Package Manager — cross-platform (Windows-first) reimplementation of Microsoft APM",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "bin": {
+    "napm": "./bin/napm.js"
+  },
+  "main": "./dist/cli.js",
+  "exports": {
+    ".": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "dev": "tsx src/cli.ts",
+    "start": "node dist/cli.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "tsc --noEmit",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "cli-table3": "^0.6.5",
+    "commander": "^12.1.0",
+    "fast-glob": "^3.3.2",
+    "gray-matter": "^4.0.3",
+    "inquirer": "^9.3.6",
+    "js-yaml": "^4.1.0",
+    "ora": "^8.1.0",
+    "p-limit": "^6.1.0",
+    "semver": "^7.6.3",
+    "simple-git": "^3.27.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.17.0",
+    "@types/semver": "^7.5.8",
+    "@types/inquirer": "^9.0.7",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  },
+  "keywords": [
+    "ai-agents",
+    "package-manager",
+    "github-copilot",
+    "apm",
+    "agent-skills",
+    "windows"
+  ],
+  "license": "MIT"
+}
