@@ -4,8 +4,6 @@ A cross-platform (Windows-first) Node.js reimplementation of [Microsoft's APM](h
 
 Declare your project's agent skills, prompts, instructions, and tools once in `apm.yml`. Every developer who clones your repo gets a fully configured AI agent setup in seconds.
 
-> **Why napm?** Microsoft's APM does not yet work on Windows. `napm` is a drop-in equivalent built on Node.js that runs everywhere.
-
 ---
 
 ## Features
