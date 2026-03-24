@@ -15,6 +15,14 @@ export interface IntegrationContext {
   force?: boolean;
   /** Set of posix-relative paths already deployed (from lockfile) — used for sync/cleanup */
   managedFiles?: Set<string>;
+  /**
+   * Root directory where primitive subdirs (agents/, prompts/, skills/, etc.) live.
+   * Defaults to `<installPath>/.apm/` when not provided.
+   * Set to `installPath` for virtual packages whose virtualPath is already within `.apm/`
+   * (e.g. `dev.azure.com/org/project/repo/.apm/sdlc`), since the installed content is
+   * the `.apm` sub-directory itself rather than a full package containing a `.apm/` folder.
+   */
+  primitiveRoot?: string;
 }
 
 export abstract class BaseIntegrator {

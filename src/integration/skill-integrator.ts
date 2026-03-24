@@ -23,7 +23,7 @@ export class SkillIntegrator extends BaseIntegrator {
       targetPaths: [],
     };
 
-    const skillsRoot = path.join(installPath, '.apm', 'skills');
+    const skillsRoot = path.join(ctx.primitiveRoot ?? path.join(installPath, '.apm'), 'skills');
     if (!fs.existsSync(skillsRoot)) return result;
 
     const hasGithub = fs.existsSync(path.join(projectRoot, '.github'));
