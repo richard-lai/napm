@@ -29,7 +29,7 @@ npm install -g @rilai/napm
 Or run without installing:
 
 ```bash
-npx napm --help
+npx @rilai/napm --help
 ```
 
 ---
