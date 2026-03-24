@@ -20,7 +20,7 @@ export class InstructionIntegrator extends BaseIntegrator {
       targetPaths: [],
     };
 
-    const srcDir = path.join(installPath, '.apm', 'instructions');
+    const srcDir = path.join(ctx.primitiveRoot ?? path.join(installPath, '.apm'), 'instructions');
     if (!fs.existsSync(srcDir)) return result;
 
     const destDir = path.join(projectRoot, '.github', 'instructions');

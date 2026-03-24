@@ -23,7 +23,8 @@ export class AgentIntegrator extends BaseIntegrator {
       targetPaths: [],
     };
 
-    const srcDir = path.join(installPath, '.apm', 'agents');
+    const apmRoot = ctx.primitiveRoot ?? path.join(installPath, '.apm');
+    const srcDir = path.join(apmRoot, 'agents');
     if (!fs.existsSync(srcDir)) return result;
 
     const hasGithub = fs.existsSync(path.join(projectRoot, '.github'));

@@ -30,9 +30,10 @@ export class CommandIntegrator extends BaseIntegrator {
 
     const destDir = path.join(projectRoot, '.claude', 'commands');
 
-    // Same source search as PromptIntegrator: .apm/prompts/ and root-level .prompt.md
+    // Same source search as PromptIntegrator: primitiveRoot/prompts/ and root-level .prompt.md
+    const apmRoot = ctx.primitiveRoot ?? path.join(installPath, '.apm');
     const searchDirs = [
-      path.join(installPath, '.apm', 'prompts'),
+      path.join(apmRoot, 'prompts'),
       installPath,
     ];
 

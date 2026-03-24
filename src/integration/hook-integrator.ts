@@ -20,10 +20,11 @@ export class HookIntegrator extends BaseIntegrator {
       targetPaths: [],
     };
 
-    // Search in both hooks/ and .apm/hooks/ (support both layouts)
+    // Search in both hooks/ and apmRoot/hooks/ (support both layouts)
+    const apmRoot = ctx.primitiveRoot ?? path.join(installPath, '.apm');
     const searchDirs = [
       path.join(installPath, 'hooks'),
-      path.join(installPath, '.apm', 'hooks'),
+      path.join(apmRoot, 'hooks'),
     ];
     const destDir = path.join(projectRoot, '.github', 'hooks');
 

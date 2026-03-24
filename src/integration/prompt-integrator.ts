@@ -21,9 +21,10 @@ export class PromptIntegrator extends BaseIntegrator {
     };
     const destDir = path.join(projectRoot, '.github', 'prompts');
 
-    // Scan .apm/prompts/ and root level for .prompt.md files
+    // Scan primitiveRoot/prompts/ and root level for .prompt.md files
+    const apmRoot = ctx.primitiveRoot ?? path.join(installPath, '.apm');
     const searchDirs = [
-      path.join(installPath, '.apm', 'prompts'),
+      path.join(apmRoot, 'prompts'),
       installPath,
     ];
 

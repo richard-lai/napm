@@ -192,10 +192,23 @@ export async function runInstall(
 
     log.dim(`  installing ${identity}…`);
 
+    // When the virtual path is already inside .apm/ (e.g. `.apm/sdlc`), the installed
+    // content IS the primitive directory, so primitive subdirs (agents/, prompts/, …)
+    // sit directly under installPath rather than under installPath/.apm/.
+    const ref = pkg.ref;
+    const isVirtualApmPath =
+      ref.isVirtual &&
+      ref.virtualPath !== undefined &&
+      (ref.virtualPath === '.apm' || ref.virtualPath.startsWith('.apm/'));
+    const primitiveRoot = isVirtualApmPath
+      ? pkg.installPath
+      : path.join(pkg.installPath, '.apm');
+
     const ctx: IntegrationContext = {
       installPath: pkg.installPath,
       projectRoot,
       force: opts.force,
+      primitiveRoot,
     };
 
     const pkgDeployed: string[] = [];
