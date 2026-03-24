@@ -23,7 +23,7 @@ Declare your project's agent skills, prompts, instructions, and tools once in `a
 ## Installation
 
 ```bash
-npm install -g napm
+npm install -g @rilai/napm
 ```
 
 Or run without installing:
