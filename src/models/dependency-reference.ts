@@ -85,6 +85,9 @@ export class DependencyReference {
 
   /** Full clone URL (HTTPS) */
   getCloneUrl(): string {
+    if (this.host === ADO_HOST && this.adoOrganization && this.adoProject && this.adoRepo) {
+      return `https://${this.host}/${this.adoOrganization}/${this.adoProject}/_git/${this.adoRepo}`;
+    }
     return `https://${this.host}/${this.repoUrl}.git`;
   }
 

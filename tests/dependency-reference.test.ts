@@ -60,6 +60,15 @@ describe('DependencyReference.parse()', () => {
     expect(ref.adoRepo).toBe('myrepo');
   });
 
+  it('parses Azure DevOps shorthand with URL-encoded project name', () => {
+    const ref = DependencyReference.parse('dev.azure.com/almengineering/Shared%20Libraries/Digital.Ai.Primitives.Core');
+    expect(ref.host).toBe('dev.azure.com');
+    expect(ref.repoUrl).toBe('almengineering/Shared%20Libraries/Digital.Ai.Primitives.Core');
+    expect(ref.adoOrganization).toBe('almengineering');
+    expect(ref.adoProject).toBe('Shared%20Libraries');
+    expect(ref.adoRepo).toBe('Digital.Ai.Primitives.Core');
+  });
+
   it('getIdentity returns repoUrl for non-virtual', () => {
     const ref = DependencyReference.parse('microsoft/apm');
     expect(ref.getIdentity()).toBe('microsoft/apm');
@@ -73,6 +82,16 @@ describe('DependencyReference.parse()', () => {
   it('getCloneUrl returns HTTPS clone URL', () => {
     const ref = DependencyReference.parse('microsoft/apm-sample-package');
     expect(ref.getCloneUrl()).toBe('https://github.com/microsoft/apm-sample-package.git');
+  });
+
+  it('getCloneUrl returns correct Azure DevOps _git URL', () => {
+    const ref = DependencyReference.parse('dev.azure.com/myorg/myproject/myrepo');
+    expect(ref.getCloneUrl()).toBe('https://dev.azure.com/myorg/myproject/_git/myrepo');
+  });
+
+  it('getCloneUrl returns correct Azure DevOps _git URL with URL-encoded project name', () => {
+    const ref = DependencyReference.parse('dev.azure.com/almengineering/Shared%20Libraries/Digital.Ai.Primitives.Core');
+    expect(ref.getCloneUrl()).toBe('https://dev.azure.com/almengineering/Shared%20Libraries/_git/Digital.Ai.Primitives.Core');
   });
 
   it('throws for invalid shorthand (single segment)', () => {
